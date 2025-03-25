@@ -2,7 +2,7 @@
  
 import {createContext, useReducer} from 'react'
 export const TemplateContext = createContext<{state:typeof initialState,dispatch:React.Dispatch<any>} | null>(null)
-const REQUEST = 'REQUEST'
+const FETCH = 'FETCH'
 const SUCCESS = 'SUCCESS'
 const FAILED  = 'FAILED'
 
@@ -14,7 +14,7 @@ export const initialState = {
 
 const reducer = (state:typeof initialState,action:any) => {
     switch (action.type) {
-        case REQUEST:
+        case FETCH:
             return {...state,isLoading:true}
         case SUCCESS:
             return {...state,isLoading:false,templates:action.payload}
